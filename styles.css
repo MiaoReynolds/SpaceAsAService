@@ -290,6 +290,10 @@ h3 {
 .services-section,
 .imagery-section,
 .technology-section,
+.propulsion-visual-section,
+.thruster-spec-section,
+.thruster-lab-section,
+.engineering-services-section,
 .philosophy-section,
 .vision-section {
   padding: clamp(86px, 11vw, 156px) clamp(20px, 6vw, 92px);
@@ -586,6 +590,193 @@ h3 {
   font-size: clamp(18px, 1.8vw, 24px);
 }
 
+.propulsion-visual-section {
+  background:
+    radial-gradient(circle at 78% 20%, rgba(43, 180, 255, 0.14), transparent 30%),
+    linear-gradient(180deg, var(--black-soft), var(--black));
+}
+
+.science-figure {
+  margin: 54px 0 0;
+}
+
+.science-figure img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.78 / 1;
+  object-fit: cover;
+  background: #071019;
+}
+
+.science-figure figcaption,
+.lab-grid figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.science-figure figcaption span,
+.lab-grid figcaption span {
+  color: var(--blue);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.science-figure figcaption strong,
+.lab-grid figcaption strong {
+  color: rgba(255, 255, 255, 0.86);
+  font-weight: 700;
+  text-align: right;
+}
+
+.spec-metrics {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 52px;
+  border: 1px solid var(--line-dark);
+  background: var(--line-dark);
+}
+
+.spec-metrics article {
+  min-height: 148px;
+  padding: 24px;
+  background: var(--paper);
+}
+
+.spec-metrics span,
+.engineering-service-grid span {
+  display: block;
+  color: var(--blue-strong);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.spec-metrics strong {
+  display: block;
+  margin-top: 38px;
+  color: var(--ink);
+  font-size: clamp(24px, 2.6vw, 36px);
+  line-height: 1;
+}
+
+.spec-table-wrap {
+  margin-top: 34px;
+  overflow-x: auto;
+  border: 1px solid var(--line-dark);
+}
+
+.spec-table {
+  width: 100%;
+  min-width: 780px;
+  border-collapse: collapse;
+  background: var(--paper);
+}
+
+.spec-table th,
+.spec-table td {
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--line-dark);
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.spec-table th {
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.spec-table td:first-child {
+  color: var(--muted-dark);
+  font-weight: 700;
+}
+
+.spec-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.spec-note {
+  max-width: 880px;
+  margin: 22px 0 0;
+  color: var(--muted-dark);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.thruster-lab-section {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(124, 207, 255, 0.1), transparent 28%),
+    linear-gradient(180deg, var(--black), var(--black-soft));
+}
+
+.lab-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: end;
+}
+
+.lab-grid figure {
+  margin: 0;
+}
+
+.lab-grid img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  background: #05080d;
+  filter: contrast(1.04) saturate(0.92);
+}
+
+.lab-grid figure:first-child img {
+  aspect-ratio: 1.25 / 1;
+  object-position: center;
+}
+
+.lab-grid figure:last-child img {
+  aspect-ratio: 1.45 / 1;
+  object-position: 50% 42%;
+}
+
+.engineering-service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 52px;
+  border: 1px solid var(--line-dark);
+  background: var(--line-dark);
+}
+
+.engineering-service-grid article {
+  min-height: 320px;
+  padding: clamp(28px, 3.8vw, 44px);
+  background: var(--paper);
+}
+
+.engineering-service-grid h3 {
+  margin-top: 54px;
+}
+
+.engineering-service-grid p {
+  margin-bottom: 0;
+  color: var(--muted-dark);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
 .chain-section {
   padding: clamp(86px, 10vw, 138px) 0 clamp(76px, 9vw, 116px);
 }
@@ -732,12 +923,15 @@ blockquote {
 @media (max-width: 1050px) {
   .service-grid,
   .service-stack,
+  .spec-metrics,
+  .engineering-service-grid,
   .roadmap {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .technology-section,
-  .philosophy-section {
+  .philosophy-section,
+  .lab-grid {
     grid-template-columns: 1fr;
   }
 
@@ -790,6 +984,8 @@ blockquote {
   .audience-grid,
   .service-stack,
   .service-grid,
+  .spec-metrics,
+  .engineering-service-grid,
   .roadmap,
   .site-footer {
     grid-template-columns: 1fr;
@@ -839,8 +1035,21 @@ blockquote {
     gap: 5px;
   }
 
-  .imagery-showcase figcaption strong {
+  .imagery-showcase figcaption strong,
+  .science-figure figcaption strong,
+  .lab-grid figcaption strong {
     text-align: left;
+  }
+
+  .science-figure figcaption,
+  .lab-grid figcaption {
+    display: grid;
+    gap: 6px;
+  }
+
+  .spec-metrics article,
+  .engineering-service-grid article {
+    min-height: auto;
   }
 
   .site-footer nav {
