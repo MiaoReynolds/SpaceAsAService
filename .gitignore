@@ -4,6 +4,8 @@
 *.jfif
 
 _ppt_extract/
+_pdf_extract/
+_vendor/
 server.*.log
 .DS_Store
 Thumbs.db
