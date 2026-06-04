@@ -12,17 +12,18 @@
   </head>
   <body>
     <header class="site-header" aria-label="SpaceS navigation">
-      <a class="brand" href="#top" aria-label="SpaceS home">SpaceS</a>
+      <button class="brand nav-tab is-active" type="button" data-tab-target="overview" aria-label="SpaceS home">SpaceS</button>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#services">Services</a>
-        <a href="#technology">Technology</a>
-        <a href="#vision">Vision</a>
-        <a href="#contact">Contact</a>
+        <button class="nav-tab is-active" type="button" data-tab-target="overview">Overview</button>
+        <button class="nav-tab" type="button" data-tab-target="services">Services</button>
+        <button class="nav-tab" type="button" data-tab-target="intelligence">Intelligence</button>
+        <button class="nav-tab" type="button" data-tab-target="technology">Technology</button>
+        <button class="nav-tab" type="button" data-tab-target="vision">Vision</button>
       </nav>
     </header>
 
     <main id="top">
-      <section class="hero section-dark reveal">
+      <section class="hero section-dark reveal tab-panel" data-tab-panel="overview">
         <img class="hero-image" src="assets/spaces-hero.png" alt="Earth from orbit with a satellite using blue electric propulsion" />
         <div class="hero-shade"></div>
         <div class="hero-copy">
@@ -34,8 +35,8 @@
             and propulsion integration to launch coordination and mission support, we provide a complete pathway to orbit.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#contact">Start Your Mission</a>
-            <a class="button secondary" href="#services">Explore Services</a>
+            <button class="button primary" type="button" data-tab-target="vision">Start Your Mission</button>
+            <button class="button secondary" type="button" data-tab-target="services">Explore Services</button>
           </div>
         </div>
         <div class="identity-strip" aria-label="SpaceS positioning">
@@ -45,7 +46,7 @@
         </div>
       </section>
 
-      <section id="services" class="section-light services-section reveal">
+      <section id="services" class="section-light services-section reveal tab-panel" data-tab-panel="services" hidden>
         <div class="section-heading">
           <p class="eyebrow">What We Do</p>
           <h2>End-to-End Space Services</h2>
@@ -95,7 +96,7 @@
         </div>
       </section>
 
-      <section class="imagery-section section-dark reveal">
+      <section id="intelligence" class="imagery-section section-dark reveal tab-panel" data-tab-panel="intelligence" hidden>
         <div class="section-heading">
           <p class="eyebrow">Satellite Intelligence</p>
           <h2>From orbital imagery to decision-ready data.</h2>
@@ -150,7 +151,7 @@
         </div>
       </section>
 
-      <section class="why-section section-dark reveal">
+      <section class="why-section section-dark reveal tab-panel" data-tab-panel="overview">
         <img class="why-image" src="assets/leo-constellation.png" alt="Low Earth orbit satellite constellation above Earth at night" />
         <div class="why-overlay"></div>
         <div class="why-content">
@@ -175,7 +176,7 @@
         </div>
       </section>
 
-      <section id="technology" class="section-light technology-section reveal">
+      <section id="technology" class="section-light technology-section reveal tab-panel" data-tab-panel="technology" hidden>
         <div class="tech-copy">
           <p class="eyebrow">Technology & Innovation</p>
           <h2>Building the Next Generation Space Ecosystem</h2>
@@ -207,7 +208,7 @@
         </div>
       </section>
 
-      <section class="chain-section section-dark reveal">
+      <section class="chain-section section-dark reveal tab-panel" data-tab-panel="technology" hidden>
         <div class="section-heading centered">
           <p class="eyebrow">SPaaS</p>
           <h2>Sell Access to Space, Not Just Hardware</h2>
@@ -219,7 +220,7 @@
         <img class="chain-image" src="assets/service-chain.png" alt="Futuristic space service chain showing research, satellite, propulsion, launch infrastructure, and Earth data" />
       </section>
 
-      <section class="philosophy-section section-light reveal">
+      <section class="philosophy-section section-light reveal tab-panel" data-tab-panel="overview">
         <blockquote>"We believe access to space should be as straightforward as access to cloud computing."</blockquote>
         <p>
           SpaceS is creating a future where universities, startups, researchers, and public agencies can deploy space missions
@@ -227,7 +228,7 @@
         </p>
       </section>
 
-      <section id="vision" class="vision-section section-dark reveal">
+      <section id="vision" class="vision-section section-dark reveal tab-panel" data-tab-panel="vision" hidden>
         <div class="section-heading">
           <p class="eyebrow">Future Vision</p>
           <h2>From Launch Services to Space Infrastructure</h2>
@@ -252,7 +253,7 @@
         </div>
       </section>
 
-      <section id="contact" class="contact-section section-dark reveal">
+      <section id="contact" class="contact-section section-dark reveal tab-panel" data-tab-panel="vision" hidden>
         <img class="contact-image" src="assets/sea-launch-platform.png" alt="Offshore launch platform at sunrise" />
         <div class="contact-overlay"></div>
         <div class="contact-copy">
@@ -269,20 +270,22 @@
 
     <footer class="site-footer">
       <div>
-        <a class="footer-brand" href="#top">SpaceS</a>
+        <button class="footer-brand nav-tab is-active" type="button" data-tab-target="overview">SpaceS</button>
         <p>Space as a Service</p>
       </div>
       <nav aria-label="Footer navigation">
-        <a href="#services">Services</a>
-        <a href="#technology">Technology</a>
-        <a href="#contact">Partners</a>
-        <a href="#contact">Careers</a>
-        <a href="#contact">Contact</a>
+        <button class="nav-tab" type="button" data-tab-target="services">Services</button>
+        <button class="nav-tab" type="button" data-tab-target="technology">Technology</button>
+        <button class="nav-tab" type="button" data-tab-target="intelligence">Data</button>
+        <button class="nav-tab" type="button" data-tab-target="vision">Careers</button>
+        <button class="nav-tab" type="button" data-tab-target="vision">Contact</button>
       </nav>
       <p class="footer-line">Enabling the next generation of space missions.</p>
     </footer>
 
     <script>
+      const tabButtons = document.querySelectorAll("[data-tab-target]");
+      const tabPanels = document.querySelectorAll("[data-tab-panel]");
       const items = document.querySelectorAll(".reveal");
       const observer = new IntersectionObserver(
         (entries) => {
@@ -297,6 +300,43 @@
       );
 
       items.forEach((item) => observer.observe(item));
+
+      const validTabs = new Set([...tabPanels].map((panel) => panel.dataset.tabPanel));
+
+      function setActiveTab(tab, options = {}) {
+        const nextTab = validTabs.has(tab) ? tab : "overview";
+
+        tabPanels.forEach((panel) => {
+          const isActive = panel.dataset.tabPanel === nextTab;
+          panel.hidden = !isActive;
+          if (isActive) {
+            panel.classList.add("is-visible");
+          }
+        });
+
+        tabButtons.forEach((button) => {
+          const isActive = button.dataset.tabTarget === nextTab;
+          button.classList.toggle("is-active", isActive);
+          if (button.matches(".nav-links .nav-tab, .site-footer .nav-tab, .brand")) {
+            button.setAttribute("aria-pressed", String(isActive));
+          }
+        });
+
+        if (!options.skipHash) {
+          history.replaceState(null, "", nextTab === "overview" ? "#top" : `#${nextTab}`);
+        }
+
+        if (!options.skipScroll) {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", () => setActiveTab(button.dataset.tabTarget));
+      });
+
+      const initialTab = location.hash ? location.hash.replace("#", "") : "overview";
+      setActiveTab(initialTab === "top" ? "overview" : initialTab, { skipHash: true, skipScroll: true });
     </script>
   </body>
 </html>
