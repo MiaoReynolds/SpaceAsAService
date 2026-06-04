@@ -41,6 +41,10 @@ a {
   text-decoration: none;
 }
 
+button {
+  font: inherit;
+}
+
 img {
   max-width: 100%;
 }
@@ -59,6 +63,10 @@ img {
 
 .brand,
 .footer-brand {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
   font-size: 21px;
   font-weight: 800;
 }
@@ -69,6 +77,41 @@ img {
   gap: clamp(16px, 3vw, 34px);
   font-size: 13px;
   font-weight: 700;
+}
+
+.nav-tab {
+  position: relative;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.nav-links .nav-tab::after,
+.site-footer .nav-tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: center;
+  background: currentColor;
+  opacity: 0.8;
+  transition: transform 180ms ease;
+}
+
+.nav-links .nav-tab.is-active::after,
+.site-footer .nav-tab.is-active::after,
+.nav-links .nav-tab:hover::after,
+.site-footer .nav-tab:hover::after {
+  transform: scaleX(1);
+}
+
+.tab-panel[hidden] {
+  display: none !important;
 }
 
 .section-dark {
@@ -203,8 +246,10 @@ h3 {
   justify-content: center;
   padding: 12px 30px;
   border-radius: 4px;
+  border: 0;
   font-size: 14px;
   font-weight: 800;
+  cursor: pointer;
   transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
 }
 
@@ -669,16 +714,25 @@ blockquote {
 
 @media (max-width: 760px) {
   .site-header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
     padding: 18px 20px;
+    mix-blend-mode: normal;
+    background: linear-gradient(180deg, rgba(2, 4, 7, 0.88), rgba(2, 4, 7, 0.36));
+    backdrop-filter: blur(18px);
   }
 
   .nav-links {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 8px;
     gap: 14px;
     font-size: 12px;
+    scrollbar-width: none;
   }
 
-  .nav-links a:nth-child(2),
-  .nav-links a:nth-child(3) {
+  .nav-links::-webkit-scrollbar {
     display: none;
   }
 
