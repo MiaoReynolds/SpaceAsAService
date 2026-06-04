@@ -311,6 +311,9 @@
           panel.hidden = !isActive;
           if (isActive) {
             panel.classList.add("is-visible");
+            panel.classList.remove("focus-in");
+            void panel.offsetWidth;
+            panel.classList.add("focus-in");
           }
         });
 
