@@ -1,9 +1,0 @@
-*.ppt
-*.pptx
-*.pdf
-*.jfif
-
-_ppt_extract/
-server.*.log
-.DS_Store
-Thumbs.db
