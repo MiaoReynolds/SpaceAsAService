@@ -609,7 +609,7 @@ h3 {
 }
 
 .science-figure figcaption,
-.lab-grid figcaption {
+.plasma-banner figcaption {
   display: flex;
   justify-content: space-between;
   gap: 24px;
@@ -621,14 +621,14 @@ h3 {
 }
 
 .science-figure figcaption span,
-.lab-grid figcaption span {
+.plasma-banner figcaption span {
   color: var(--blue);
   font-weight: 900;
   text-transform: uppercase;
 }
 
 .science-figure figcaption strong,
-.lab-grid figcaption strong {
+.plasma-banner figcaption strong {
   color: rgba(255, 255, 255, 0.86);
   font-weight: 700;
   text-align: right;
@@ -720,37 +720,18 @@ h3 {
     linear-gradient(180deg, var(--black), var(--black-soft));
 }
 
-.lab-grid {
-  display: grid;
-  grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.55fr);
-  gap: clamp(24px, 4vw, 48px);
-  align-items: end;
-}
-
-.lab-grid figure {
+.plasma-banner {
   margin: 0;
 }
 
-.lab-grid figure > img {
-  height: clamp(360px, 34vw, 520px);
-}
-
-.lab-grid img {
+.plasma-banner img {
   display: block;
   width: 100%;
+  height: clamp(360px, 34vw, 560px);
   object-fit: cover;
+  object-position: center;
   background: #05080d;
   filter: contrast(1.04) saturate(0.92);
-}
-
-.lab-grid figure:first-child img {
-  object-fit: contain;
-  object-position: center;
-}
-
-.lab-grid figure:last-child img {
-  object-fit: contain;
-  object-position: center;
 }
 
 .engineering-service-grid {
@@ -932,8 +913,7 @@ blockquote {
   }
 
   .technology-section,
-  .philosophy-section,
-  .lab-grid {
+  .philosophy-section {
     grid-template-columns: 1fr;
   }
 
@@ -1039,12 +1019,12 @@ blockquote {
 
   .imagery-showcase figcaption strong,
   .science-figure figcaption strong,
-  .lab-grid figcaption strong {
+  .plasma-banner figcaption strong {
     text-align: left;
   }
 
   .science-figure figcaption,
-  .lab-grid figcaption {
+  .plasma-banner figcaption {
     display: grid;
     gap: 6px;
   }
