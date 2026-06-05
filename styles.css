@@ -294,6 +294,7 @@ h3 {
 .thruster-spec-section,
 .thruster-lab-section,
 .engineering-services-section,
+.events-section,
 .philosophy-section,
 .vision-section {
   padding: clamp(86px, 11vw, 156px) clamp(20px, 6vw, 92px);
@@ -758,6 +759,144 @@ h3 {
   line-height: 1.7;
 }
 
+.events-section {
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(43, 180, 255, 0.14), transparent 30%),
+    linear-gradient(180deg, var(--black), var(--black-soft));
+}
+
+.event-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: clamp(28px, 5vw, 70px);
+  align-items: start;
+  margin-top: 54px;
+}
+
+.event-card-grid {
+  display: grid;
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.event-card {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 44px);
+  min-height: 320px;
+  padding: clamp(28px, 4vw, 46px);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.event-date {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  color: var(--white);
+}
+
+.event-date span,
+.event-date small,
+.event-status {
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.event-date strong {
+  font-size: clamp(48px, 6vw, 82px);
+  line-height: 0.95;
+}
+
+.event-status {
+  margin-bottom: 16px;
+}
+
+.event-body dl {
+  display: grid;
+  gap: 18px;
+  margin: 28px 0 0;
+}
+
+.event-body dl div {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.event-body dt {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.event-body dd {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.5;
+}
+
+.event-form {
+  display: grid;
+  gap: 18px;
+  padding: clamp(28px, 4vw, 44px);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.event-form h3 {
+  margin-bottom: 4px;
+}
+
+.event-form label {
+  display: grid;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.event-form input,
+.event-form select,
+.event-form textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0;
+  padding: 13px 14px;
+  background: rgba(2, 4, 7, 0.72);
+  color: var(--white);
+  font: inherit;
+  font-size: 15px;
+  letter-spacing: 0;
+}
+
+.event-form textarea {
+  resize: vertical;
+}
+
+.event-form input:focus,
+.event-form select:focus,
+.event-form textarea:focus {
+  outline: 1px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.form-note {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .chain-section {
   padding: clamp(86px, 10vw, 138px) 0 clamp(76px, 9vw, 116px);
 }
@@ -911,7 +1050,8 @@ blockquote {
   }
 
   .technology-section,
-  .philosophy-section {
+  .philosophy-section,
+  .event-layout {
     grid-template-columns: 1fr;
   }
 
@@ -1029,6 +1169,15 @@ blockquote {
 
   .spec-metrics article,
   .engineering-service-grid article {
+    min-height: auto;
+  }
+
+  .event-card,
+  .event-body dl div {
+    grid-template-columns: 1fr;
+  }
+
+  .event-card {
     min-height: auto;
   }
 
