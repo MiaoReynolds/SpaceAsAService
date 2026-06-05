@@ -722,7 +722,7 @@ h3 {
 
 .lab-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.55fr);
   gap: clamp(24px, 4vw, 48px);
   align-items: end;
 }
@@ -731,24 +731,26 @@ h3 {
   margin: 0;
 }
 
+.lab-grid figure > img {
+  height: clamp(360px, 34vw, 520px);
+}
+
 .lab-grid img {
   display: block;
   width: 100%;
-  height: 100%;
-  min-height: 360px;
   object-fit: cover;
   background: #05080d;
   filter: contrast(1.04) saturate(0.92);
 }
 
 .lab-grid figure:first-child img {
-  aspect-ratio: 1.25 / 1;
+  object-fit: contain;
   object-position: center;
 }
 
 .lab-grid figure:last-child img {
-  aspect-ratio: 1.45 / 1;
-  object-position: 50% 42%;
+  object-fit: contain;
+  object-position: center;
 }
 
 .engineering-service-grid {
