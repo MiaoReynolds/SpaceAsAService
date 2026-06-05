@@ -18,6 +18,7 @@
         <button class="nav-tab" type="button" data-tab-target="services">Services</button>
         <button class="nav-tab" type="button" data-tab-target="intelligence">Intelligence</button>
         <button class="nav-tab" type="button" data-tab-target="technology">Technology</button>
+        <button class="nav-tab" type="button" data-tab-target="events">Next Launch Event</button>
         <button class="nav-tab" type="button" data-tab-target="vision">Vision</button>
       </nav>
     </header>
@@ -376,6 +377,109 @@
         </div>
       </section>
 
+      <section id="events" class="events-section section-dark reveal tab-panel" data-tab-panel="events" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Next Launch Event</p>
+          <h2>Coming launch viewing opportunities for research and industry partners.</h2>
+          <p>
+            These placeholder events are designed for early customer discovery. Interested organizations can register
+            their details and receive follow-up information by email.
+          </p>
+        </div>
+        <div class="event-layout">
+          <div class="event-card-grid" aria-label="Coming launch event cards">
+            <article class="event-card">
+              <div class="event-date">
+                <span>Aug</span>
+                <strong>18</strong>
+                <small>2026</small>
+              </div>
+              <div class="event-body">
+                <p class="event-status">Placeholder event</p>
+                <h3>Singapore Research Rideshare Viewing Day</h3>
+                <dl>
+                  <div>
+                    <dt>Launch site</dt>
+                    <dd>Offshore launch viewing zone, South China Sea corridor</dd>
+                  </div>
+                  <div>
+                    <dt>Launch provider</dt>
+                    <dd>Equatorial Launch Consortium</dd>
+                  </div>
+                  <div>
+                    <dt>Mission type</dt>
+                    <dd>Small satellite rideshare and university payload deployment</dd>
+                  </div>
+                  <div>
+                    <dt>Ideal attendees</dt>
+                    <dd>Universities, research labs, Earth observation teams</dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+            <article class="event-card">
+              <div class="event-date">
+                <span>Oct</span>
+                <strong>09</strong>
+                <small>2026</small>
+              </div>
+              <div class="event-body">
+                <p class="event-status">Placeholder event</p>
+                <h3>Orbital Services Demonstration Visit</h3>
+                <dl>
+                  <div>
+                    <dt>Launch site</dt>
+                    <dd>Pacific mobile sea platform demonstration area</dd>
+                  </div>
+                  <div>
+                    <dt>Launch provider</dt>
+                    <dd>NovaSea Launch Services</dd>
+                  </div>
+                  <div>
+                    <dt>Mission type</dt>
+                    <dd>Commercial CubeSat deployment with propulsion integration briefing</dd>
+                  </div>
+                  <div>
+                    <dt>Ideal attendees</dt>
+                    <dd>Startups, environmental agencies, remote sensing customers</dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+          </div>
+          <form class="event-form" id="event-registration-form">
+            <p class="eyebrow">Register Interest</p>
+            <h3>Receive launch event details.</h3>
+            <label>
+              Full name
+              <input name="name" type="text" autocomplete="name" required />
+            </label>
+            <label>
+              Work email
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+            <label>
+              Organization
+              <input name="organization" type="text" autocomplete="organization" />
+            </label>
+            <label>
+              Event of interest
+              <select name="event">
+                <option>Singapore Research Rideshare Viewing Day</option>
+                <option>Orbital Services Demonstration Visit</option>
+                <option>Both events</option>
+              </select>
+            </label>
+            <label>
+              Mission interest
+              <textarea name="message" rows="4" placeholder="Satellite data, propulsion integration, launch access, or other mission needs"></textarea>
+            </label>
+            <button class="button primary" type="submit">Request Email Info</button>
+            <p class="form-note">This static form opens your email client with the registration details pre-filled.</p>
+          </form>
+        </div>
+      </section>
+
       <section class="chain-section section-dark reveal tab-panel" data-tab-panel="technology" hidden>
         <div class="section-heading centered">
           <p class="eyebrow">SPaaS</p>
@@ -445,6 +549,7 @@
         <button class="nav-tab" type="button" data-tab-target="services">Services</button>
         <button class="nav-tab" type="button" data-tab-target="technology">Technology</button>
         <button class="nav-tab" type="button" data-tab-target="intelligence">Data</button>
+        <button class="nav-tab" type="button" data-tab-target="events">Events</button>
         <button class="nav-tab" type="button" data-tab-target="vision">Careers</button>
         <button class="nav-tab" type="button" data-tab-target="vision">Contact</button>
       </nav>
@@ -504,6 +609,27 @@
 
       tabButtons.forEach((button) => {
         button.addEventListener("click", () => setActiveTab(button.dataset.tabTarget));
+      });
+
+      const eventForm = document.querySelector("#event-registration-form");
+      eventForm?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(eventForm);
+        const body = [
+          "Launch event registration request",
+          "",
+          `Name: ${formData.get("name") || ""}`,
+          `Email: ${formData.get("email") || ""}`,
+          `Organization: ${formData.get("organization") || ""}`,
+          `Event: ${formData.get("event") || ""}`,
+          "",
+          "Mission interest:",
+          formData.get("message") || ""
+        ].join("\n");
+        const mailto = new URL("mailto:hello@spaces.sg");
+        mailto.searchParams.set("subject", "SpaceS launch event registration");
+        mailto.searchParams.set("body", body);
+        window.location.href = mailto.toString();
       });
 
       const initialTab = location.hash ? location.hash.replace("#", "") : "overview";
