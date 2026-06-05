@@ -727,9 +727,7 @@ h3 {
 .plasma-banner img {
   display: block;
   width: 100%;
-  height: clamp(360px, 34vw, 560px);
-  object-fit: cover;
-  object-position: center;
+  height: auto;
   background: #05080d;
   filter: contrast(1.04) saturate(0.92);
 }
