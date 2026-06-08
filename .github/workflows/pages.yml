@@ -23,7 +23,7 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir site
-          cp index.html styles.css .nojekyll README.md site/
+          cp index.html styles.css .nojekyll README.md CNAME site/
           cp -R assets site/assets
 
       - name: Publish gh-pages branch
