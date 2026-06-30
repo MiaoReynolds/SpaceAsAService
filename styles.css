@@ -291,6 +291,7 @@ h3 {
 .imagery-section,
 .technology-section,
 .propulsion-visual-section,
+.hardware-gallery-section,
 .thruster-spec-section,
 .thruster-lab-section,
 .engineering-services-section,
@@ -733,6 +734,101 @@ h3 {
   filter: contrast(1.04) saturate(0.92);
 }
 
+.hardware-gallery-section {
+  background:
+    radial-gradient(circle at 74% 18%, rgba(124, 207, 255, 0.12), transparent 28%),
+    linear-gradient(180deg, #03070c, var(--black));
+}
+
+.hardware-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  gap: clamp(18px, 2.6vw, 32px);
+  margin-top: 54px;
+}
+
+.hardware-hero,
+.hardware-stack figure,
+.plume-proof-grid figure {
+  margin: 0;
+}
+
+.hardware-hero img,
+.hardware-stack img,
+.hardware-stack video,
+.plume-proof-grid img {
+  display: block;
+  width: 100%;
+  background: #05080d;
+  object-fit: cover;
+  filter: contrast(1.03) saturate(0.92);
+}
+
+.hardware-hero img {
+  height: clamp(640px, 72vw, 920px);
+  object-position: center 42%;
+}
+
+.hardware-stack {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: clamp(18px, 2.6vw, 32px);
+}
+
+.hardware-stack img,
+.hardware-stack video {
+  height: clamp(300px, 34vw, 444px);
+}
+
+.hardware-stack img {
+  object-position: center center;
+}
+
+.hardware-stack video {
+  object-position: center center;
+}
+
+.plume-proof-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  gap: clamp(18px, 2.6vw, 32px);
+  margin-top: clamp(18px, 2.6vw, 32px);
+}
+
+.plume-proof-grid img {
+  height: clamp(360px, 42vw, 560px);
+}
+
+.plume-proof-grid figure:first-child img {
+  object-position: center 48%;
+}
+
+.plume-proof-grid figure:last-child img {
+  object-position: 35% center;
+}
+
+.hardware-gallery-section figcaption {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.28fr) 1fr;
+  gap: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.hardware-gallery-section figcaption span {
+  color: var(--blue);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.hardware-gallery-section figcaption strong {
+  color: rgba(255, 255, 255, 0.86);
+  font-weight: 700;
+}
+
 .engineering-service-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1051,7 +1147,9 @@ blockquote {
 
   .technology-section,
   .philosophy-section,
-  .event-layout {
+  .event-layout,
+  .hardware-showcase,
+  .plume-proof-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1157,14 +1255,29 @@ blockquote {
 
   .imagery-showcase figcaption strong,
   .science-figure figcaption strong,
-  .plasma-banner figcaption strong {
+  .plasma-banner figcaption strong,
+  .hardware-gallery-section figcaption strong {
     text-align: left;
   }
 
   .science-figure figcaption,
-  .plasma-banner figcaption {
+  .plasma-banner figcaption,
+  .hardware-gallery-section figcaption {
     display: grid;
+    grid-template-columns: 1fr;
     gap: 6px;
+  }
+
+  .hardware-hero img,
+  .hardware-stack img,
+  .hardware-stack video,
+  .plume-proof-grid img {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .hardware-stack {
+    grid-template-rows: auto;
   }
 
   .spec-metrics article,
