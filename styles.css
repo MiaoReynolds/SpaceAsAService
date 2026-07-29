@@ -289,6 +289,7 @@ h3 {
 
 .services-section,
 .imagery-section,
+.home-product-section,
 .technology-section,
 .propulsion-visual-section,
 .hardware-gallery-section,
@@ -315,6 +316,104 @@ h3 {
 
 .section-dark .section-heading p {
   color: rgba(255, 255, 255, 0.72);
+}
+
+.home-product-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+  gap: clamp(34px, 6vw, 86px);
+  align-items: center;
+  background:
+    radial-gradient(circle at 82% 22%, rgba(43, 180, 255, 0.13), transparent 30%),
+    linear-gradient(180deg, #03070c, var(--black-soft));
+}
+
+.home-product-copy {
+  max-width: 720px;
+}
+
+.home-product-copy p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(16px, 1.45vw, 20px);
+  line-height: 1.75;
+}
+
+.home-product-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.home-product-media {
+  display: grid;
+  gap: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.home-product-figure {
+  margin: 0;
+  background: #05080d;
+}
+
+.home-product-figure img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.16 / 1;
+  object-fit: cover;
+  object-position: center 43%;
+  filter: contrast(1.03) saturate(0.9);
+}
+
+.home-product-figure figcaption {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.32fr) 1fr;
+  gap: 18px;
+  padding: 18px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.home-product-figure figcaption span {
+  color: var(--blue);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.home-product-figure figcaption strong {
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 700;
+}
+
+.home-product-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+}
+
+.home-product-metrics article {
+  min-height: 132px;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.home-product-metrics span {
+  display: block;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-product-metrics strong {
+  display: block;
+  margin-top: 32px;
+  color: var(--white);
+  font-size: clamp(24px, 2.7vw, 38px);
+  line-height: 1;
 }
 
 .centered {
@@ -1146,6 +1245,7 @@ blockquote {
   }
 
   .technology-section,
+  .home-product-section,
   .philosophy-section,
   .event-layout,
   .hardware-showcase,
@@ -1209,6 +1309,10 @@ blockquote {
     grid-template-columns: 1fr;
   }
 
+  .home-product-media {
+    max-width: 860px;
+  }
+
   .identity-strip {
     bottom: 20px;
   }
@@ -1246,6 +1350,19 @@ blockquote {
 
   .roadmap article {
     min-height: 160px;
+  }
+
+  .home-product-actions .button {
+    width: min(100%, 270px);
+  }
+
+  .home-product-metrics,
+  .home-product-figure figcaption {
+    grid-template-columns: 1fr;
+  }
+
+  .home-product-metrics article {
+    min-height: auto;
   }
 
   .imagery-showcase figcaption {
